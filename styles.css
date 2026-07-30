@@ -112,8 +112,8 @@ button {
 
 .brand-mark {
   font-family: var(--font-display);
-  letter-spacing: 0.22em;
-  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  font-size: 1rem;
 }
 
 .nav {
@@ -193,9 +193,9 @@ button {
 .brand {
   margin: 0 0 0.85rem;
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 8vw, 4.8rem);
-  line-height: 0.95;
-  letter-spacing: 0.02em;
+  font-size: clamp(2.4rem, 7.5vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
   color: var(--ink);
   text-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
 }
@@ -332,18 +332,35 @@ button {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
-  gap: 1.35rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 168px), 1fr));
+  gap: 1rem;
+}
+
+body.is-camera-tracking {
+  scroll-behavior: auto;
+}
+
+body.is-camera-tracking .dish:not(.is-scanning) {
+  opacity: 0.42;
+  filter: saturate(0.7);
+  transition:
+    opacity 0.2s ease,
+    filter 0.2s ease,
+    transform 0.25s var(--ease-out);
 }
 
 .dish {
   position: relative;
   display: grid;
-  gap: 0.85rem;
+  gap: 0.65rem;
   cursor: pointer;
   outline: none;
   border-radius: 0;
-  transition: transform 0.45s var(--ease-out);
+  transition:
+    transform 0.45s var(--ease-out),
+    opacity 0.25s ease,
+    filter 0.25s ease;
+  will-change: transform;
 }
 
 .dish:hover,
@@ -380,48 +397,50 @@ button {
 
 .dish.is-scanning .dish-media::after,
 .dish.is-winner .dish-media::after {
-  border-color: rgba(212, 162, 90, 0.9);
+  border-color: rgba(212, 162, 90, 0.95);
   box-shadow:
-    inset 0 0 0 1px rgba(212, 162, 90, 0.35),
-    0 0 30px rgba(212, 162, 90, 0.35);
+    inset 0 0 0 1px rgba(212, 162, 90, 0.4),
+    0 0 36px rgba(212, 162, 90, 0.45);
+}
+
+.dish.is-scanning {
+  z-index: 3;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: scale(1.08);
 }
 
 .dish.is-scanning .dish-media img {
-  filter: brightness(1.25) saturate(1.15);
+  filter: brightness(1.28) saturate(1.2);
 }
 
 .dish.is-dimmed {
-  opacity: 0.35;
-  filter: grayscale(0.35);
-  transform: scale(0.98);
+  opacity: 0.32;
+  filter: grayscale(0.4);
+  transform: scale(0.97);
 }
 
 .dish.is-winner {
   z-index: 2;
-  transform: scale(1.03);
+  opacity: 1;
+  filter: none;
+  transform: scale(1.06);
 }
 
 .dish-copy h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 500;
-}
-
-.dish-copy p {
-  margin: 0.35rem 0 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.55;
 }
 
 .dish-meta {
   display: flex;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-top: 0.45rem;
+  margin-top: 0.35rem;
   color: var(--accent);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.04em;
 }
 
@@ -624,10 +643,10 @@ body.is-locked {
 
   .menu-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 0.9rem;
+    gap: 0.75rem;
   }
 
-  .dish-copy p {
-    display: none;
+  .dish.is-scanning {
+    transform: scale(1.04);
   }
 }
