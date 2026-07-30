@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LUMEN 私厨 · 今日菜单</title>
+    <title>遥远的私厨</title>
     <meta
       name="description"
-      content="LUMEN 私厨 — 为你随机挑选今晚的主厨推荐。"
+      content="遥远的私厨 — 点击随机菜单，让缘分决定今晚吃什么。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
     <div class="glow glow-b" aria-hidden="true"></div>
 
     <header class="topbar">
-      <a class="brand-mark" href="#top">LUMEN</a>
+      <a class="brand-mark" href="#top">遥远的私厨</a>
       <nav class="nav">
         <a href="#menu">菜单</a>
         <a href="#about">关于</a>
@@ -30,21 +30,17 @@
     </header>
 
     <main id="top">
-      <section class="hero" aria-label="LUMEN 私厨">
+      <section class="hero" aria-label="遥远的私厨">
         <div class="hero-media" aria-hidden="true">
-          <img
-            id="hero-image"
-            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=80"
-            alt=""
-          />
+          <img id="hero-image" src="" alt="" />
           <div class="hero-scrim"></div>
         </div>
 
         <div class="hero-content">
-          <p class="brand">LUMEN 私厨</p>
+          <p class="brand">遥远的私厨</p>
           <h1>今晚，让缘分决定菜色</h1>
           <p class="lede">
-            点击随机菜单，主厨会为你挑出一道今晚的焦点之作。
+            点击随机菜单，视角会跟着扫描跳动，最终锁定一道今晚的菜。
           </p>
           <div class="cta-row">
             <button type="button" class="btn btn-primary" id="random-btn">
@@ -58,23 +54,23 @@
 
       <section class="menu-section" id="menu">
         <div class="section-head">
-          <h2>本季菜单</h2>
-          <p>精选八道私厨料理，任选缘分，或逐一品味。</p>
+          <h2>全部菜品</h2>
+          <p id="menu-count">家常私厨菜单，点一张看大图，或交给随机缘分。</p>
         </div>
         <div class="menu-grid" id="menu-grid" role="list"></div>
       </section>
 
       <section class="about-section" id="about">
-        <h2>关于 LUMEN</h2>
+        <h2>关于遥远的私厨</h2>
         <p>
-          一间只为少数人开灶的私厨。食材当季，火候克制，灯光偏暗——好让味道成为今晚唯一的主角。
+          一桌家常、一份随意。不赶时髦，只记味道——随机一抽，也是今晚的答案。
         </p>
       </section>
     </main>
 
     <footer class="footer">
-      <span>LUMEN 私厨</span>
-      <span>Reservation · dusk till late</span>
+      <span>遥远的私厨</span>
+      <span>今晚吃什么，交给缘分</span>
     </footer>
 
     <div
@@ -99,8 +95,7 @@
           <h3 id="spotlight-title"></h3>
           <p id="spotlight-desc"></p>
           <div class="spotlight-meta">
-            <span id="spotlight-price"></span>
-            <span id="spotlight-time"></span>
+            <span id="spotlight-type"></span>
           </div>
           <button type="button" class="btn btn-primary" id="again-btn">
             再抽一次
