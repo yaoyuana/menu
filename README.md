@@ -14,27 +14,37 @@ python3 -m http.server 8080
 
 也可直接用浏览器打开 `index.html`（部分浏览器对本地模块无影响，本页为纯静态）。
 
-## 线上访问（GitHub Pages）
+## 线上访问
 
-仓库：https://github.com/yaoyuana/menu
+### 立刻可打开（无需配置）
 
-合并到 `main` 后，Actions 工作流会自动部署。首次需在仓库设置中开启 Pages：
+代码已在 `main`，可用 CDN 镜像直接打开：
 
-1. 打开 **Settings → Pages**
-2. **Source** 选择 **GitHub Actions**
-3. 等待 workflow 成功后访问：
+**https://raw.githack.com/yaoyuana/menu/main/index.html**
 
-**https://yaoyuana.github.io/menu/**
+（备选：https://cdn.jsdelivr.net/gh/yaoyuana/menu@main/index.html）
 
-也可在 Actions 里手动运行 **Deploy GitHub Pages**。
+### GitHub Pages（推荐固定域名）
+
+仓库：https://github.com/yaoyuana/menu  
+目标地址：**https://yaoyuana.github.io/menu/**
+
+若打开显示 **404**，通常是 Pages 尚未开启（Actions 无法代你点这一下）。按下面做一次即可：
+
+1. 打开 [Settings → Pages](https://github.com/yaoyuana/menu/settings/pages)
+2. **Build and deployment → Source** 选 **GitHub Actions**
+3. 打开 [Actions](https://github.com/yaoyuana/menu/actions) → 失败的 **Deploy GitHub Pages** → **Re-run all jobs**  
+   （或再 push 一次 / 手动 Run workflow）
+4. 等绿灯后访问 https://yaoyuana.github.io/menu/
 
 ## 其他免费上线方式
 
 | 方案 | 说明 |
 |------|------|
-| **GitHub Pages**（已配置） | 推送 `main` 即部署，适合本仓库 |
-| [Cloudflare Pages](https://pages.cloudflare.com/) | 连接 GitHub，构建命令留空，输出目录 `/` |
-| [Netlify Drop](https://app.netlify.com/drop) | 把本目录拖上去，立刻得到链接 |
-| [Surge.sh](https://surge.sh/) | `npx surge .` 一键发布 |
+| **raw.githack / jsDelivr** | 上面即时链接，零配置 |
+| **GitHub Pages**（已配 workflow） | 固定 `*.github.io` 域名 |
+| [Cloudflare Pages](https://pages.cloudflare.com/) | 连 GitHub，构建留空，目录 `/` |
+| [Netlify Drop](https://app.netlify.com/drop) | 把本目录拖上去即得链接 |
+| [Surge.sh](https://surge.sh/) | `npx surge .` |
 
-无需构建步骤：纯 HTML / CSS / JS，任意静态托管都能用。
+无需构建：纯 HTML / CSS / JS。

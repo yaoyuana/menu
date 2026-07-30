@@ -29,6 +29,7 @@ jobs:
           mkdir -p _site
           cp index.html styles.css app.js README.md _site/
 
+      # Requires one-time: Settings → Pages → Source = GitHub Actions
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
